@@ -12,7 +12,14 @@
                 <param name="android-package" value="cordova.plugins.CordovaInstalledAppPlugin" />
             </feature>
         </config-file>
-        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission" />
+            <queries>
+                <intent>
+                    <action android:name="android.intent.action.MAIN" />
+                </intent>
+            </queries>
+        </config-file>
         <source-file src="src/android/CordovaInstalledAppPlugin.java" target-dir="src/cordova/plugins" />
     </platform>
 </plugin>
