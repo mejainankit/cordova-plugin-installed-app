@@ -27,7 +27,7 @@ This plugin provides functionality of  for Android And return the Selected Mobil
 
 ## Methods
 
-- `showHintRequest`
+- `getInstalledAppList`
 
 ### Example
 
