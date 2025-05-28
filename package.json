@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-installed-app",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-installed-app",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Ankit Jain",
+  "license": "ISC"
+}
