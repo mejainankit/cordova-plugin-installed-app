@@ -38,9 +38,12 @@ public class CordovaInstalledAppPlugin extends CordovaPlugin {
             List<PackageInfo> packages = pm.getInstalledPackages(0);
             ArrayList<String> installedApps = new ArrayList<String>();
             for (PackageInfo packageInfo : packages) {
-              String appName = packageInfo.applicationInfo.loadLabel(pm).toString();
-              String packageName = packageInfo.packageName;
-              installedApps.add(appName + " (" + packageName + ")");
+              ApplicationInfo appInfo = packageInfo.applicationInfo;
+              if ((appInfo.flags & (ApplicationInfo.FLAG_SYSTEM | ApplicationInfo.FLAG_UPDATED_SYSTEM_APP)) == 0) {
+                String appName = appInfo.loadLabel(pm).toString();
+                String packageName = packageInfo.packageName;
+                installedApps.add(appName + " (" + packageName + ")");
+              }
             }
             callback.success(new JSONArray(installedApps));
           } catch(Exception e) {
